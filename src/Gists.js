@@ -85,6 +85,8 @@ function Gists() {
                               return "File Type: Python";
                             } else if (d.includes("js")) {
                               return "File Type: JavaScript";
+                            } else if (d.includes("md")) {
+                              return "File Type: MD";
                             }
                           })}
                         </h6>
@@ -106,14 +108,14 @@ function Gists() {
           <Row className="justify-center text-center">
             <h1>Showing Person who Forked</h1>
             {ForkedUser
-              ? ForkedUser.slice(0,3).map((d, i) => {
+              ? ForkedUser.slice(0, 3).map((d, i) => {
                   if (d.owner.login) {
                     return (
                       <Col sm={6}>
                         <div className="Card">
                           <a href={d.html_url} target="_blank">
-                          <Image src={d.owner.avatar_url} width={"100%"} />
-                          <h2>{d.owner.login}</h2>
+                            <Image src={d.owner.avatar_url} width={"100%"} />
+                            <h2>{d.owner.login}</h2>
                           </a>
                         </div>
                       </Col>
