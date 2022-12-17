@@ -31,7 +31,7 @@ function Gists() {
       })
       .then(function (res) {
         setData(res.data);
-        // console.log(fileObj[0]);
+        // console.log(res.data);
         // Object.keys(fileObj)
       });
   };
@@ -106,14 +106,15 @@ function Gists() {
           <Row className="justify-center text-center">
             <h1>Showing Person who Forked</h1>
             {ForkedUser
-              ? ForkedUser.map((d, i) => {
+              ? ForkedUser.slice(0,3).map((d, i) => {
                   if (d.owner.login) {
                     return (
                       <Col sm={6}>
                         <div className="Card">
-                          <a href={""} />
+                          <a href={d.html_url} target="_blank">
                           <Image src={d.owner.avatar_url} width={"100%"} />
                           <h2>{d.owner.login}</h2>
+                          </a>
                         </div>
                       </Col>
                     );
